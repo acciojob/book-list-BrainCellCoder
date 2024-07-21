@@ -33,39 +33,27 @@
                 </tr>
             </thead>
             <tbody id="book-list">
-                <!-- Book rows will be added here -->
             </tbody>
         </table>
     </div>
 
     <script>
         document.getElementById('submit').addEventListener('click', function() {
-            // Get the input values
             const title = document.getElementById('title').value;
             const author = document.getElementById('author').value;
             const isbn = document.getElementById('isbn').value;
-
-            // Create a new row
             const row = document.createElement('tr');
-
-            // Create and append cells to the row
             row.innerHTML = `
                 <td>${title}</td>
                 <td>${author}</td>
                 <td>${isbn}</td>
                 <td><button class="btn btn-danger btn-sm delete">X</button></td>
             `;
-
-            // Append the row to the book list
             document.getElementById('book-list').appendChild(row);
-
-            // Clear input fields
             document.getElementById('title').value = '';
             document.getElementById('author').value = '';
             document.getElementById('isbn').value = '';
         });
-
-        // Add event listener for delete buttons
         document.getElementById('book-list').addEventListener('click', function(e) {
             if (e.target.classList.contains('delete')) {
                 e.target.parentElement.parentElement.remove();
